@@ -1,2 +1,14 @@
-<h1>Records#new</h1>
-<p>Find me in app/views/records/new.html.erb</p>
+<h1>Add New Record</h1>
+
+<div class="container">
+<%= simple_form_for @record do |f| %>
+  <%= f.input :artist %>
+  <%= f.input :title %>
+  <%= f.input :year %>
+  <%= f.input :label %>
+  <%= f.input :genre, as: :select, collection: ["Rock", "Blues", "Pop", "Hip Hop", "Metal", "Electro - Techno", "Electro - House"]  %>
+  <%# f.input :photo %>
+  <%#f.input :photo_cache, as: :hidden %>
+  <%= f.button :submit, "Add Record", class: 'btn btn-primary' %>
+<% end %>
+</div>
