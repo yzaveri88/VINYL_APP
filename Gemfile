@@ -11,6 +11,7 @@ gem 'redis'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
+gem 'devise'
 gem 'font-awesome-sass'
 gem 'sass-rails'
 gem 'simple_form'
@@ -29,4 +30,3 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'devise'
