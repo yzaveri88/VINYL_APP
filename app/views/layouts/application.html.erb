@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title>Sign-up</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -12,16 +12,16 @@
   <body>
     <div class="navbar-wagon">
       <!-- Logo -->
-      <a href="/" class="navbar-wagon-brand">
-        <img src="images/logo.png" alt="logo">
-      </a>
+      <div class="navbar-wagon-brand">
+      <%= link_to(image_tag("/assets/vinyl_love.png", :alt => "logo", :title => "Home"), "/") %>
+      </div>
 
       <!-- Right Navigation -->
       <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-        <a href="" class="navbar-wagon-item navbar-wagon-link">Host</a>
-        <a href="" class="navbar-wagon-item navbar-wagon-link">Trips</a>
-        <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
+        <a href="" class="navbar-wagon-item navbar-wagon-link">Rent records</a>
+        <%= link_to "Sign-up", "/users/sign_up", class: "navbar-wagon-item navbar-wagon-link" %>
+        <a href="" class="navbar-wagon-item navbar-wagon-link">Log In</a>
 
         <!-- Profile picture with dropdown list -->
         <div class="navbar-wagon-item">

@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create(email:"yash@google.com", password:"123123")
+
+12.times do
+record = Record.create(user_id: 1, year: 1967,title:"Dark Side of the Moon",artist:"Pink Floyd",genre:"Rock",label:"Polydor" ,price:10)
+end
+# record_10 = Record.new(year:,title:,artist:,genre: ,label: ,price:)
+
