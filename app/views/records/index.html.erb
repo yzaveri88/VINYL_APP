@@ -1,31 +1,23 @@
-<h1>List of records:</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Artist</th>
-      <th>Genre</th>
-      <th>Year</th>
-      <th>Label</th>
-      <th>Price</th>
+ <h1>List of records</h1>
 
-    <!--   <th colspan="6"></th> -->
-    </tr>
-  </thead>
-  <tbody>
+
+<div class="container">
+  <div class="row">
     <% @records.each do |record| %>
-      <tr>
-        <td><%= link_to record.title, record_path(record) %></td>
-        <td><%= record.artist %></td>
-        <td><%= record.genre %></td>
-        <td><%= record.year %></td>
-        <td><%= record.label %></td>
-        <td><%= record.price %></td>
-      </tr>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: url(<%= image_path 'dsotm.jpg' %>);">
+          <h2><%= record.title %></h2>
+          <p><%= record.artist %></p>
+          <p><%= record.price %> € per day </p>
+          <p>  <%= link_to 'Watch details', record_path(record), class: 'btn btn-primary' %></p>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+
+
 
 
 
