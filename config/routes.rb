@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
-  get 'bookings/show'
-  get 'bookings/new'
-  get 'bookings/edit'
+  resources :bookings, only: :show
   devise_for :users
-  resources :records
+  resources :records do
+    resources :bookings, only: [:new, :create]
+  end
+
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
