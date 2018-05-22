@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'bookings/show'
   get 'bookings/new'
   get 'bookings/edit'
-
   devise_for :users
   resources :records
 
