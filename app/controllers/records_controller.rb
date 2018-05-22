@@ -14,6 +14,7 @@ class RecordsController < ApplicationController
 
   def create
     @record = Record.new(record_params)
+    @record.user = current_user
     @record.save
     redirect_to record_show_path(@record) #double check this badboy
   end

@@ -14,4 +14,3 @@ p users
 record = Record.create(user_id: 1, year: 1967,title:"Dark Side of the Moon",artist:"Pink Floyd",genre:"Rock",label:"Polydor" ,price:10)
 end
 # record_10 = Record.new(year:,title:,artist:,genre: ,label: ,price:)
-
