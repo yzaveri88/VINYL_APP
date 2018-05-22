@@ -1,2 +1,31 @@
-<h1>Records#index</h1>
-<p>Find me in app/views/records/index.html.erb</p>
+<h1>List of records:</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>Label</th>
+      <th>Price</th>
+
+    <!--   <th colspan="6"></th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= link_to record.title, record_path(record) %></td>
+        <td><%= record.artist %></td>
+        <td><%= record.genre %></td>
+        <td><%= record.year %></td>
+        <td><%= record.label %></td>
+        <td><%= record.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
