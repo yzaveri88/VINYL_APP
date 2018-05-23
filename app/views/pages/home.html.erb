@@ -4,15 +4,15 @@
     <p>Rent your records today</p>
 
     <div class="wrap">
-       <div class="search">
-          <input type="text" class="searchTerm" placeholder="Start looking now">
-          <button type="submit" class="searchButton">
-            <i class="fa fa-search"></i>
-         </button>
-       </div>
-    </div>
-    </div>
-    </div>
+     <div class="search">
+      <input type="text" class="searchTerm" placeholder="Start looking now">
+
+      <a  href="http://google.com" type="submit" class="btn btn-default searchButton"><i class="fa fa-search"></i></a>
+    </button>
+  </div>
+</div>
+</div>
+</div>
 
 <div style="text-align:left"><h4>The top rented records are</h4></div>
 
@@ -20,13 +20,13 @@
   <div class="row">
     <h4></h4>
     <% @records.each do |record| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: url(<%= image_path 'dsotm.jpg' %>);">
-          <h2><%= link_to record.title, record_path(record) %></h2>
-          <p><%= record.year %></p>
-          <p><%= record.price %></p>
-        </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: url(<%= image_path 'dsotm.jpg' %>);">
+        <h2><%= link_to record.title, record_path(record) %></h2>
+        <p><%= record.year %></p>
+        <p><%= record.price %></p>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
