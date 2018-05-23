@@ -25,3 +25,5 @@ class RecordsController < ApplicationController
     params.require(:records).permit(:year, :title, :artist, :genre, :label, :price)
   end
 end
+
+

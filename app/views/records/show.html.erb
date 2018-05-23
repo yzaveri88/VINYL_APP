@@ -1,10 +1,12 @@
+
+<div class="container">
+<h1>Rent your record!</h1>
 <h1><%= @record.title %></h1>
 
 <p>
   <strong>Artist:</strong>
   <%= @record.artist %>
 </p>
-
 
 <p>
   <strong>Year:</strong>
@@ -26,8 +28,21 @@
   <%= @record.price  %> €
 </p>
 
-<%= link_to 'Book Now', records_path, class: 'btn btn-primary' %>
+
+
+
+<%= link_to 'Book now', record_bookings_path(@record, fake_data: {start_date: Date.new(2001,5,4), end_date: Date.new(2002,2,1)}), method: "create",  class: 'btn btn-primary' %>
 <%= link_to 'Go back to search results', records_path, class: 'btn btn-primary' %>
+
+
+</div>
+
+
+
+
+
+
+
 
 
 

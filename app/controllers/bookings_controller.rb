@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    raise
     @booking.record = Record.find(params[:record_id])
     @booking.user = current_user
     @booking.save
