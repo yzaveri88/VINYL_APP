@@ -16,13 +16,32 @@ class RecordsController < ApplicationController
     @record = Record.new(record_params)
     @record.user = current_user
     @record.save
-    redirect_to record_show_path(@record) #double check this badboy
+    redirect_to record_path(@record)
+  end
+
+  def edit
+    @record = Record.find(params[:id])
+  end
+
+  def update
+    @record = Record.find(params[:id])
+    @record.user = current_user
+    @record.update(record_params)
+    redirect_to record_path(@record)
+  end
+
+  def destroy
+    @record = Record.find(params[:id])
+    @record.user = current_user
+    @record.destroy
+    redirect_to records_path
+    # redirect_to pages_dashboard once created
   end
 
   private
 
   def record_params
-    params.require(:records).permit(:year, :title, :artist, :genre, :label, :price)
+    params.require(:record).permit(:year, :title, :artist, :genre, :label, :price)
   end
 end
 

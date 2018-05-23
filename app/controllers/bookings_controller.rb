@@ -1,11 +1,5 @@
 class BookingsController < ApplicationController
-  def index
-    @user = User.find(params[:id])
-    @bookings = Booking.all
-  end
-
   def show
-    @user = User.find(params[:id])
     @booking = Booking.find(params[:id])
   end
 
@@ -16,11 +10,15 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    raise
-    @booking.record = Record.find(params[:record_id])
+    @record = Record.find(params[:record_id])
+    @booking.record = @record
     @booking.user = current_user
-    @booking.save
-    redirect_to booking_path(@booking)
+
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -31,10 +29,14 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
+    redirect_to booking_path(@booking)
   end
 
-  # def destroy
-  # end
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to booking_path(@booking)
+  end
 
   private
 

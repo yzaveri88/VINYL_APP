@@ -1,6 +1,34 @@
-<h1>Booking Overview</h1>
-<br>
-<h2>This is your booking status</h2>
-<% @bookings.each do |booking| %>
-<%= link_to booking.record.title, bookings_show_path(booking) %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+          <div class="card">
+            <div class="card-category">
+              <ul>
+                <% vinyl = Record.find(booking.record_id) %>
+                <li>
+                  <%= vinyl.title %>
+                </li>
+                <li>
+                  Booker: <%= User.find(booking.user_id).email %>
+                </li>
+                <li>
+                  Start: <%= booking.start_date %> <br>
+                </li>
+                <li>
+                  End: <%= booking.end_date %> <br>
+                </li>
+                <li>
+                  <%= link_to booking.record.title, bookings_show_path(booking) %>
+                </li>
+              </ul>
+            </div>
+            <div class="card-description">
+
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
