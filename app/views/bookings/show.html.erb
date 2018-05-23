@@ -10,7 +10,10 @@
 <p><%= @booking.record.genre %></p>
 <p><%= @booking.record.label %></p>
 
-<%= link_to 'Update booking', edit_record_booking_path(@booking), class: 'btn btn-primary' %>
+<%= link_to "Go to homepage", root_path, class: 'btn btn-primary' %>
+
+
+<%= link_to 'Edit booking', edit_record_booking_path(@booking), class: 'btn btn-primary' %>
 </div>
 
 

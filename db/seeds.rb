@@ -11,6 +11,6 @@ p users
 
 
 12.times do
-record = Record.create(user_id: 1, year: 1967,title:"Dark Side of the Moon",artist:"Pink Floyd",genre:"Rock",label:"Polydor" ,price:10)
+record = Record.create(user_id: 1, year: 1967,title:"Dark Side of the Moon",artist:"Pink Floyd",genre:"Rock",label:"Polydor", price:10.00)
 end
 # record_10 = Record.new(year:,title:,artist:,genre: ,label: ,price:)
