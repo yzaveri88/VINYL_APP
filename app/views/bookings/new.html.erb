@@ -1,2 +1,9 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h1>Rent your record!</h1>
+
+<div class="container">
+<%= simple_form_for [@record, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit, "Create booking", class: 'btn btn-primary' %>
+<% end %>
+</div>

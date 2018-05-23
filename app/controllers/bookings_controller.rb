@@ -10,15 +10,16 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @user = current_user
     @booking = Booking.new
-    @record = Record.find(params[:artist, :title, :year, :label, :genre])
+    @record = Record.find(params[:record_id])
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.record = Record.find(params[:record_id])
+    @booking.user = current_user
     @booking.save
-
+    redirect_to booking_path(@booking)
   end
 
   def edit
