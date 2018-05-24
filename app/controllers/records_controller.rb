@@ -9,7 +9,8 @@ class RecordsController < ApplicationController
         lng: record.longitude,
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
-      
+    end
+
     if params[:query].present?
       sql_query = " \
         records.title @@ :query \
@@ -62,5 +63,3 @@ class RecordsController < ApplicationController
     params.require(:record).permit(:year, :title, :artist, :genre, :label, :price, :photo)
   end
 end
-
-
