@@ -1,1 +1,63 @@
 // Specific CSS for your home-page
+.card {
+  height: 250px;
+  width: 250px;
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  border-radius: 50%;
+  margin-bottom: 40px;
+}
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.card-description {
+  position: absolute;
+  text-align: center;
+  top: 30%;
+}
+.card-description h2 {
+  font-size: 24px;
+  a {
+  color: white;
+  }
+}
+.card-description p {
+  font-size: 16px;
+  opacity: 1;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
+}
+
+.btn-primary {
+
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: -50px 40px;
+    border-radius: 50%;
+}
