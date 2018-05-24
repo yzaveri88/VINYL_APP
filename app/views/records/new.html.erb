@@ -7,10 +7,10 @@
   <%= f.input :year %>
   <%= f.input :label %>
   <%= f.input :genre, as: :select, collection: ["Rock", "Blues", "Pop", "Hip Hop", "Metal", "Electro - Techno", "Electro - House"]  %>
-  <%# f.input :photo %>
-  <%#f.input :photo_cache, as: :hidden %>
   <%= f.input :address, id: "record_address"  %>
   <%= f.input :price %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
   <%= f.button :submit, "Add Record", class: 'btn btn-primary' %>
 <% end %>
 </div>

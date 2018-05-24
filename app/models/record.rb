@@ -3,6 +3,7 @@ class Record < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
   has_many :bookings
+  mount_uploader :photo, PhotoUploader
 
     include PgSearch
     pg_search_scope :search_by_title_and_artist,
