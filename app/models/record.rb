@@ -2,12 +2,20 @@ class Record < ApplicationRecord
   belongs_to :user
   has_many :bookings
 
-def self.search(search)
-  if search
-    find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
-  else
-    find(:all)
+    include PgSearch
+    pg_search_scope :search_by_title_and_artist,
+      against: [ :title, :artist ],
+      using: {
+        tsearch: { prefix: true }
+      }
+
+  attr_accessor :city_name, :latitude, :longitude
+  geocoded_by :city_name
+  after_validation :geocode
+
+  private
+  def city_name
+    self.city.name
   end
-end
 
 end

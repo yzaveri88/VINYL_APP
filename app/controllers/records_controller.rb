@@ -2,7 +2,16 @@ class RecordsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @records = Record.all
+    if params[:query].present?
+      sql_query = " \
+        records.title @@ :query \
+        OR records.artist @@ :query \
+        OR records.genre @@ :query \
+      "
+      @records = Record.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @records = Record.all
+    end
   end
 
   def show
