@@ -28,7 +28,7 @@
   <%= @record.price  %> €
 </p>
 
-<%#= cl_image_tag @record.photo, height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag @record.photo, height: 300, width: 400, crop: :fill %>
 
 <%= link_to 'Book Now', new_record_booking_path(@record), class: 'btn btn-primary' %>
 <%= link_to 'Go back to search results', records_path, class: 'btn btn-primary' %>
