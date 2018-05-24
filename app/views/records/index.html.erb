@@ -9,15 +9,19 @@
           <h2><%= record.title %></h2>
           <p><%= record.artist %></p>
           <p><%= record.price %> € per day </p>
-          <p>  <%= link_to 'Details', record_path(record), class: 'btn btn-primary pull-right' %></p>
+          <p><%= link_to 'Details', record_path(record), class: 'btn btn-primary pull-right' %></p>
         </div>
       </div>
     <% end %>
   </div>
 </div>
 
-
-
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+></div>
 
 
 

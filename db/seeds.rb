@@ -9,8 +9,10 @@
 users = User.create(email: "yash@google.com", password: "123123", password_confirmation: "123123" )
 p users
 
-
-12.times do
-record = Record.create(user_id: 1, year: 1967,title:"Dark Side of the Moon",artist:"Pink Floyd",genre:"Rock",label:"Polydor", price:10.00)
+6.times do
+record = Record.create(user_id: 1, year: 1967,title:"Dark Side of the Moon",artist:"Pink Floyd",genre:"Rock",label:"Polydor" ,price:10, address: "Friedrichstrasse 55, Berlin")
 end
+
+7.times do
+record = Record.create(user_id: 2, year: 1988,title:"Dark Side",artist:"ZZ Top",genre:"Rock",label:"Epic" ,price:5.9, address: "Danziger Strasse 100, Berlin")
 # record_10 = Record.new(year:,title:,artist:,genre: ,label: ,price:)
