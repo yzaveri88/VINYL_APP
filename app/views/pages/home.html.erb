@@ -2,20 +2,39 @@
   <div class="banner-content">
     <h1>Vinyl Love</h1>
     <p>Rent your records today</p>
-    <a class="btn btn-primary btn-lg">Start now</a>
   </div>
+    <%= form_tag records_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Please enter artist, title or genre"
+      %>
+<% end %>
+
 </div>
+
+
+
+<div style="text-align:left"><h4>The top rented records are</h4></div>
+
+
 
 <div class="container">
   <div class="row">
+    <h4></h4>
     <% @records.each do |record| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: url(<%= image_path 'dsotm.jpg' %>);">
-          <h2><%= record.title %></h2>
-          <p><%= record.year %></p>
-          <p><%= record.price %></p>
-        </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: url(<%= image_path 'dsotm.jpg' %>);">
+        <h2><%= link_to record.title, record_path(record) %></h2>
+        <p><%= record.year %></p>
+        <p><%= record.price %></p>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
+
+
+
+
+

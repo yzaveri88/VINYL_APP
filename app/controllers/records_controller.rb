@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @records = Record.where.not(latitude: nil, longitude: nil)
     @markers = @records.map do |record|
@@ -8,6 +9,16 @@ class RecordsController < ApplicationController
         lng: record.longitude,
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
+      
+    if params[:query].present?
+      sql_query = " \
+        records.title @@ :query \
+        OR records.artist @@ :query \
+        OR records.genre @@ :query \
+      "
+      @records = Record.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @records = Record.all
     end
   end
 

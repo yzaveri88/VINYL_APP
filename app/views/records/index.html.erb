@@ -1,7 +1,6 @@
 
  <h1>List of records</h1>
 
-
 <div class="container">
   <div class="row">
     <% @records.each do |record| %>
@@ -10,7 +9,7 @@
           <h2><%= record.title %></h2>
           <p><%= record.artist %></p>
           <p><%= record.price %> € per day </p>
-          <p><%= link_to 'Watch details', record_path(record), class: 'btn btn-primary' %></p>
+          <p><%= link_to 'Details', record_path(record), class: 'btn btn-primary pull-right' %></p>
         </div>
       </div>
     <% end %>
@@ -23,5 +22,6 @@
   height: 600px;"
   data-markers="<%= @markers.to_json %>"
 ></div>
+
 
 

@@ -1,10 +1,12 @@
+
+<div class="container">
+<h1>Rent your record!</h1>
 <h1><%= @record.title %></h1>
 
 <p>
   <strong>Artist:</strong>
   <%= @record.artist %>
 </p>
-
 
 <p>
   <strong>Year:</strong>
@@ -26,10 +28,10 @@
   <%= @record.price  %> €
 </p>
 
-<%= link_to 'Book Now', records_path, class: 'btn btn-primary' %>
+<%= link_to 'Book Now', new_record_booking_path(@record), class: 'btn btn-primary' %>
 <%= link_to 'Go back to search results', records_path, class: 'btn btn-primary' %>
 <%= link_to 'Delete Record', record_path(@record),
       method: :delete,
       data: { confirm: "Are you sure?" },
       class: 'btn btn-primary' %>
-
+</div>
