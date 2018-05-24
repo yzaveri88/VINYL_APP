@@ -11,6 +11,7 @@ gem 'redis'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
+gem 'carrierwave', '~> 1.2'
 gem 'devise'
 gem 'font-awesome-sass'
 gem 'geocoder'
