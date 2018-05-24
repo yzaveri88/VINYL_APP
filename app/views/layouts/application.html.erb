@@ -67,5 +67,9 @@
     </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['AIzaSyAOVdGpluqu2rePAGfJGfhQk1iAVbklbf4']}" %>
+
+    <%= javascript_pack_tag "map" %>
+
   </body>
 </html>
