@@ -1,34 +1,45 @@
-<div class="container">
-  <div class="row">
-    <% @bookings.each do |booking| %>
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
-          <div class="card">
-            <div class="card-category">
-              <ul>
-                <% vinyl = Record.find(booking.record_id) %>
-                <li>
-                  <%= vinyl.title %>
-                </li>
-                <li>
-                  Booker: <%= User.find(booking.user_id).email %>
-                </li>
-                <li>
-                  Start: <%= booking.start_date %> <br>
-                </li>
-                <li>
-                  End: <%= booking.end_date %> <br>
-                </li>
-                <li>
-                  <%= link_to booking.record.title, bookings_show_path(booking) %>
-                </li>
-              </ul>
-            </div>
-            <div class="card-description">
+<h1>Dashboard</h1>
 
-            </div>
-          </div>
-      </div>
-    <% end %>
-  </div>
+<div class="tabs">
+  <a class="tab active" href="#">
+    <h3>Bookings</h3>
+  </a>
+  <a class="tab" href="#">
+    <h3>Your records for rent</h3>
+  </a>
 </div>
+
+<div class="container">
+  <% @bookings.each do |booking| %>
+    <div class="message">
+      <img class="avatar-large" src="app/assets/images/dsotm.jpg">
+        <div class="message-body">
+          <% vinyl = Record.find(booking.record_id) %>
+          <p><strong><%= vinyl.title %></strong></p>
+          <p>
+              Booker: <%= User.find(booking.user_id).email %><br>
+              Start: <%= booking.start_date %> <br>
+              End: <%= booking.end_date %> <br>
+          </p>
+        </div>
+        <div class="message-status">
+          <%= booking.status %>
+          <p class="price">Total: €345</p>
+        </div>
+        <div class="message-buttons">
+          <%= link_to 'Accept', accept_record_booking_path(vinyl,booking),
+          method: "post",
+          data: { confirm: "Accept booking?" },
+          class: 'btn btn-primary' %>
+          <%= link_to 'Decline', decline_record_booking_path(vinyl,booking),
+           method: "post",
+          data: { confirm: "Decline booking?" },
+          class: 'btn btn-primary' %>
+        </div>
+
+    </div>
+<% end  %>
+</div>
+
+
+

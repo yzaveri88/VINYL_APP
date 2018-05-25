@@ -1,0 +1,72 @@
+<h1>Welcome @user.name</h1>
+
+<div class="message">
+  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+  <div class="message-name">
+    <h3>Gab Dehan</h3>
+    <p>10/07/17</p>
+  </div>
+  <div class="message-body">
+    <p><strong>I am not sure yet!</strong></p>
+    <p>
+      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
+    </p>
+  </div>
+  <div class="message-status">
+    <p class="status pending">Pending</p>
+    <p class="price">€345</p>
+  </div>
+</div>
+
+<div class="tabs">
+  <a class="tab active" href="#">
+    <h3>1</h3>
+    <p>Pending</p>
+  </a>
+  <a class="tab" href="#">
+    <h3>3</h3>
+    <p>Approved</p>
+  </a>
+  <a class="tab" href="#">
+    <h3>1</h3>
+    <p>Declined</p>
+  </a>
+</div>
+
+
+<!-- Yash's original code -->
+
+<div class="container">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+          <div class="card">
+            <div class="card-category">
+              <ul>
+                <% vinyl = Record.find(booking.record_id) %>
+                <li>
+                  <%= vinyl.title %>
+                </li>
+                <li>
+                  Booker: <%= User.find(booking.user_id).email %>
+                </li>
+                <li>
+                  Start: <%= booking.start_date %> <br>
+                </li>
+                <li>
+                  End: <%= booking.end_date %> <br>
+                </li>
+                <li>
+                  <%#link_to booking.record.title, bookings_show_path(booking) %>
+                </li>
+              </ul>
+            </div>
+            <div class="card-description">
+
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
