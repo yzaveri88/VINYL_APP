@@ -2,6 +2,7 @@
   <div class="banner-content">
     <h1>Vinyl Love</h1>
     <p>Rent your records today</p>
+
   </div>
   <%= form_tag records_path, method: :get do %>
   <%= text_field_tag :query,
@@ -10,8 +11,8 @@
     placeholder: "Please enter artist, title or genre"
     %>
     <% end %>
-</div>
 
+  </div>
 
 
   <div style="text-align:left"><h4>Most poular records</h4></div>
