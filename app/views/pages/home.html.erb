@@ -35,9 +35,11 @@
   <div class="row">
     <% @records.each do |record| %>
     <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.4) 100%), url(<%= image_path 'dsotm.jpg' %>);">
-
-
+      <% if record.photo.present?  %>
+      <div class="card" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.4) 100%), url(<%= cl_image_path record.photo %>); ">
+        <% else  %>
+          <div class="card" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.4) 100%), url(<%= image_path "dsotm.jpg" %>); ">
+        <% end  %>
         <div class="card-description">
           <h2>
             <%= link_to record_path(record) do %>

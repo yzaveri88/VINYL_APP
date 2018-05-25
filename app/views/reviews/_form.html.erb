@@ -1,4 +1,4 @@
 <%= simple_form_for([ record, review ]) do |form| %>
-  <%= form.input :content, as: :text %>
+  <%= form.input :content, as: :text, placeholder: "Write a review", label: false %>
   <%= form.button :submit %>
 <% end %>

@@ -29,11 +29,10 @@
           <p class="price">Rate per day: <%= booking.record.price %>€</p>
         </div>
         <div class="message-buttons">
-          <%= link_to 'Edit',edit_record_booking_path(vinyl,booking),
-          method: "patch",
+          <%= link_to 'Edit', edit_record_booking_path(booking.record,booking),
           data: { confirm: "Edit booking?" },
           class: 'btn btn-primary' %>
-          <%= link_to 'Cancel', decline_record_booking_path(vinyl,booking),
+          <%= link_to 'Cancel', record_booking_path(booking.record,booking),
            method: :delete,
           data: { confirm: "Cancel booking?" },
           class: 'btn btn-primary' %>

@@ -27,6 +27,7 @@ class BookingsController < ApplicationController
   end
 
   def edit
+
     @booking = Booking.find(params[:id])
     @booking.user = current_user
 
@@ -41,7 +42,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to booking_path(@booking)
+    redirect_to record_bookings_path
   end
 
   def accept

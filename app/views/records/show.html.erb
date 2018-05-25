@@ -1,11 +1,17 @@
 
-<div class="album-container">
+<div class="container">
+<div class="album-container" >
 
+<% if @record.photo.present?  %>
+  <div class="card-show" style="background-image:  url(<%= cl_image_path @record.photo %>);">
+    <% else %>
+     <div class="card-show" style="background-image:  url(<%= image_path "dsotm.jpg" %>);">
+      <% end %>
+  </div>
 
-<div class="card-show" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.4) 100%), url(<%= image_path 'dsotm.jpg' %>);">
-</div>
-    <div class="album-details">
+    <div class="album-details" >
     <h1><%= @record.title %></h1>
+
 
     <p>
       <strong>Artist:</strong>
@@ -34,31 +40,34 @@
 </div>
 </div>
 
-
-
-<h2>
-  <%= pluralize @record.reviews.size, "review" %>
-</h2>
-
-<div id="reviews">
-  <% if @record.reviews.blank? %>
-    Be the first to leave a review for <%= @record.title %>
-  <% else %>
-    <% @record.reviews.each do |review| %>
-      <%= render 'reviews/show', review: review %>
-    <% end %>
-  <% end %>
-  <%= render 'reviews/form', record: @record, review: @review %>
-</div>
-
+<div class="book-buttons">
 <%= link_to 'Book Now', new_record_booking_path(@record), class: 'btn btn-primary' %>
 <%= link_to 'Go back to search results', records_path, class: 'btn btn-primary' %>
 <%= link_to 'Delete Record', record_path(@record),
 method: :delete,
 data: { confirm: "Are you sure?" },
 class: 'btn btn-primary' %>
+</div>
 
 
+<div >
+  <h2>
+    <%= pluralize @record.reviews.size, "review" %>
+  </h2>
+
+  <div id="reviews">
+    <% if @record.reviews.blank? %>
+      Be the first to leave a review for <%= @record.title %>
+    <% else %>
+      <% @record.reviews.each do |review| %>
+        <%= render 'reviews/show', review: review %>
+      <% end %>
+    <% end %>
+    <%= render 'reviews/form', record: @record, review: @review %>
+  </div>
+</div>
+
+</div>
 
 
 <%#= cl_image_tag @record.photo, height: 300, width: 400, crop: :fill %>
