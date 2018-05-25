@@ -1,15 +1,15 @@
-<h1>Dashboard</h1>
-
+<div class="container">
+  <h2>Dashboard</h2>
 <div class="tabs">
   <a class="tab active" href="#">
     <h3>Bookings</h3>
   </a>
-  <a class="tab" href="#">
+  <a class="tab" href="#your-records">
     <h3>Your records for rent</h3>
   </a>
 </div>
 
-<div class="container">
+<div class="active-bookings">
   <% @bookings.each do |booking| %>
     <div class="message">
       <img class="avatar-large" src="app/assets/images/dsotm.jpg">
@@ -23,23 +23,24 @@
           </p>
         </div>
         <div class="message-status">
-          <%= booking.status %>
-          <p class="price">Total: €345</p>
+          <p>Booking status:<%= booking.status %></p>
+        </div>
+        <div class="message-status">
+          <p class="price">Rate per day: <%= booking.record.price %>€</p>
         </div>
         <div class="message-buttons">
-          <%= link_to 'Accept', accept_record_booking_path(vinyl,booking),
-          method: "post",
-          data: { confirm: "Accept booking?" },
+          <%= link_to 'Edit',edit_record_booking_path(vinyl,booking),
+          method: "patch",
+          data: { confirm: "Edit booking?" },
           class: 'btn btn-primary' %>
-          <%= link_to 'Decline', decline_record_booking_path(vinyl,booking),
-           method: "post",
-          data: { confirm: "Decline booking?" },
+          <%= link_to 'Cancel', decline_record_booking_path(vinyl,booking),
+           method: :delete,
+          data: { confirm: "Cancel booking?" },
           class: 'btn btn-primary' %>
         </div>
-
     </div>
 <% end  %>
 </div>
-
+</div>
 
 
