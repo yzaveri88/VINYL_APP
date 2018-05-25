@@ -25,6 +25,7 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
+    @review = Review.new
   end
 
   def new

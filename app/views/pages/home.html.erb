@@ -2,6 +2,7 @@
   <div class="banner-content">
     <h1>Vinyl Love</h1>
     <p>Rent your records today</p>
+
     <div class="searchbar" action="action_page.php">
       <%= form_tag records_path,{method: :get} do  %>
       <%= text_field_tag :query, params[:query],  placeholder: "What are you looking for", style:" height:40px"  %>
@@ -9,6 +10,7 @@
       <i class="fas fa-search"> </i>
       <% end %>
       <% end %>
+
 
     </div>
   </div>
@@ -21,11 +23,11 @@
 
 
 
+  <div style="text-align:left"><h4>Most popular records</h4></div>
 
 
 
 
-<div style="text-align:left"><h4>Most poular records</h4></div>
 
 
 
