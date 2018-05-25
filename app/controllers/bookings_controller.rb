@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
+    @records = Record.all
   end
 
   def show
@@ -19,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      redirect_to bookings_path(@booking)
+      redirect_to record_bookings_path(@record)
     else
       render :new
     end

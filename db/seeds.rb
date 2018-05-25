@@ -17,3 +17,5 @@ end
 record = Record.create(user_id: 2, year: 1988,title:"Dark Side",artist:"ZZ Top",genre:"Rock",label:"Epic" ,price:5.9, address: "Danziger Strasse 100, Berlin")
 # record_10 = Record.new(year:,title:,artist:,genre: ,label: ,price:)
 end
+
+
