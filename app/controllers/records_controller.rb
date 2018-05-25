@@ -2,7 +2,25 @@ class RecordsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @records = Record.all
+    @records = Record.where.not(latitude: nil, longitude: nil)
+    @markers = @records.map do |record|
+      {
+        lat: record.latitude,
+        lng: record.longitude,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
+
+    if params[:query].present?
+      sql_query = " \
+        records.title @@ :query \
+        OR records.artist @@ :query \
+        OR records.genre @@ :query \
+      "
+      @records = Record.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @records = Record.all
+    end
   end
 
   def show
@@ -42,8 +60,6 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record).permit(:year, :title, :artist, :genre, :label, :price)
+    params.require(:record).permit(:year, :title, :artist, :genre, :label, :price, :photo)
   end
 end
-
-
