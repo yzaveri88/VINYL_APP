@@ -2,16 +2,10 @@
 
 <div class="tabs">
   <a class="tab active" href="#">
-    <h3>1</h3>
-    <p>Pending</p>
+    <h3>Bookings</h3>
   </a>
   <a class="tab" href="#">
-    <h3>3</h3>
-    <p>Approved</p>
-  </a>
-  <a class="tab" href="#">
-    <h3>1</h3>
-    <p>Declined</p>
+    <h3>Your records for rent</h3>
   </a>
 </div>
 
@@ -19,9 +13,6 @@
   <% @bookings.each do |booking| %>
     <div class="message">
       <img class="avatar-large" src="app/assets/images/dsotm.jpg">
-        <div class="message-name">
-        <!-- TBD if we still need this section - move to end and add EDIT & DELETE LInks to it-->
-        </div>
         <div class="message-body">
           <% vinyl = Record.find(booking.record_id) %>
           <p><strong><%= vinyl.title %></strong></p>
@@ -29,14 +20,26 @@
               Booker: <%= User.find(booking.user_id).email %><br>
               Start: <%= booking.start_date %> <br>
               End: <%= booking.end_date %> <br>
-
-              <%#link_to booking.record.title, bookings_show_path(booking) %>
           </p>
         </div>
         <div class="message-status">
-          <p class="status pending">Pending</p>
-          <p class="price">€345</p>
+          <%= booking.status %>
+          <p class="price">Total: €345</p>
         </div>
+        <div class="message-buttons">
+          <%= link_to 'Accept', accept_record_booking_path(vinyl,booking),
+          method: "post",
+          data: { confirm: "Accept booking?" },
+          class: 'btn btn-primary' %>
+          <%= link_to 'Decline', decline_record_booking_path(vinyl,booking),
+           method: "post",
+          data: { confirm: "Decline booking?" },
+          class: 'btn btn-primary' %>
+        </div>
+
     </div>
 <% end  %>
 </div>
+
+
+
