@@ -13,15 +13,10 @@ class Record < ApplicationRecord
         tsearch: { prefix: true }
       }
 
-  attr_accessor :address, :latitude, :longitude
-  geocoded_by :address
-  after_validation :geocode
-
-
   private
 
   def city_name
      self.city.name
-   end
+  end
 
 end
