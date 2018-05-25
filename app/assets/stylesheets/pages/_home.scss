@@ -25,7 +25,7 @@
 .card-description h2 {
   font-size: 24px;
   a {
-  color: white;
+    color: white;
   }
 }
 .card-description p {
@@ -49,15 +49,46 @@
 }
 
 .btn-primary {
-
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 6px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: -50px 40px;
-    border-radius: 50%;
+  // background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: -50px 40px;
 }
+
+#search-button{
+  width: 44px;
+  height: 40px;
+  margin-top: -5px;
+}
+
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 400px;
+}
+.searchbar {
+  // font-size: 17px;
+  // top: 355px;
+  // left: 575px;
+  // height: 30px;
+  // width: 50px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
