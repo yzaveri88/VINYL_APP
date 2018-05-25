@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:show,]
   devise_for :users
   resources :records do
+    resources :reviews, only: :create
     resources :bookings, only: [:new, :create, :edit, :update, :destroy, :index] do
       member do
         post 'accept'
