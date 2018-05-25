@@ -1,34 +1,40 @@
 
-<div class="container">
-<h1>Rent your record!</h1>
-<h1><%= @record.title %></h1>
+<div class="album-container">
 
-<p>
-  <strong>Artist:</strong>
-  <%= @record.artist %>
-</p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @record.year %>
-</p>
+<div class="card-show" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.4) 100%), url(<%= image_path 'dsotm.jpg' %>);">
+</div>
+    <div class="album-details">
+    <h1><%= @record.title %></h1>
 
-<p>
-   <strong>Genre:</strong>
-  <%= @record.genre %>
-</p>
+    <p>
+      <strong>Artist:</strong>
+      <%= @record.artist %>
+    </p>
 
-<p>
-   <strong>Label:</strong>
-  <%= @record.label %>
-</p>
+    <p>
+      <strong>Year:</strong>
+      <%= @record.year %>
+    </p>
 
-<p>
-  <strong>Price per Day:</strong>
-  <%= @record.price  %> €
-</p>
+    <p>
+     <strong>Genre:</strong>
+     <%= @record.genre %>
+   </p>
 
-<%= cl_image_tag @record.photo, height: 300, width: 400, crop: :fill %>
+   <p>
+     <strong>Label:</strong>
+     <%= @record.label %>
+   </p>
+
+   <p>
+    <strong>Price per Day:</strong>
+    <%= @record.price  %> €
+  </p>
+</div>
+</div>
+
+
 
 <h2>
   <%= pluralize @record.reviews.size, "review" %>
@@ -48,7 +54,12 @@
 <%= link_to 'Book Now', new_record_booking_path(@record), class: 'btn btn-primary' %>
 <%= link_to 'Go back to search results', records_path, class: 'btn btn-primary' %>
 <%= link_to 'Delete Record', record_path(@record),
-      method: :delete,
-      data: { confirm: "Are you sure?" },
-      class: 'btn btn-primary' %>
-</div>
+method: :delete,
+data: { confirm: "Are you sure?" },
+class: 'btn btn-primary' %>
+
+
+
+
+<%#= cl_image_tag @record.photo, height: 300, width: 400, crop: :fill %>
+

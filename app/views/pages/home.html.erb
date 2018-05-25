@@ -3,41 +3,55 @@
     <h1>Vinyl Love</h1>
     <p>Rent your records today</p>
 
-  </div>
-  <%= form_tag records_path, method: :get do %>
-  <%= text_field_tag :query,
-  params[:query],
-  class: "form-control",
-    placeholder: "Please enter artist, title or genre"
-    %>
-    <% end %>
+    <div class="searchbar" action="action_page.php">
+      <%= form_tag records_path,{method: :get} do  %>
+      <%= text_field_tag :query, params[:query],  placeholder: "What are you looking for", style:" height:40px"  %>
+      <%= button_tag(type: "submit", class: "btn btn-default", id: "search-button") do %>
+      <i class="fas fa-search"> </i>
+      <% end %>
+      <% end %>
 
+
+    </div>
   </div>
+</div>
+</div>
+
+
+
+
+
 
 
   <div style="text-align:left"><h4>Most popular records</h4></div>
 
 
 
-  <div class="container">
-    <div class="row">
-      <% @records.each do |record| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.4) 100%), url(<%= image_path 'dsotm.jpg' %>);">
-          <div class="card-description">
-            <h2>
-              <%= link_to record_path(record) do %>
-                <%= record.title %> (<%= record.year %>)
-              <% end  %>
-            </h2>
-            <p><%= link_to record.artist, record_path(record) %></p>
-            <p> € <%= record.price %>0</p>
-          </div>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <% @records.each do |record| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.4) 100%), url(<%= image_path 'dsotm.jpg' %>);">
+
+
+        <div class="card-description">
+          <h2>
+            <%= link_to record_path(record) do %>
+            <%= record.title %> (<%= record.year %>)
+            <% end  %>
+          </h2>
+          <p><%= link_to record.artist, record_path(record) %></p>
+          <p> € <%= record.price %>0</p>
         </div>
       </div>
-       <% end %>
     </div>
+    <% end %>
   </div>
+</div>
 
 
 
