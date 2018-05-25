@@ -3,13 +3,7 @@ class RecordsController < ApplicationController
 
   def index
     @records = Record.where.not(latitude: nil, longitude: nil)
-    @markers = @records.map do |record|
-      {
-        lat: record.latitude,
-        lng: record.longitude,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }
-    end
+
 
     if params[:query].present?
       sql_query = " \
@@ -20,6 +14,13 @@ class RecordsController < ApplicationController
       @records = Record.where(sql_query, query: "%#{params[:query]}%")
     else
       @records = Record.all
+    end
+    @markers = @records.map do |record|
+      {
+        lat: record.latitude,
+        lng: record.longitude,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
     end
   end
 
