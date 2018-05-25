@@ -36,12 +36,13 @@
 
 <div id="reviews">
   <% if @record.reviews.blank? %>
-    Be the first to leave a review for <%= @record.name %>
+    Be the first to leave a review for <%= @record.title %>
   <% else %>
     <% @record.reviews.each do |review| %>
       <%= render 'reviews/show', review: review %>
     <% end %>
   <% end %>
+  <%= render 'reviews/form', record: @record, review: @review %>
 </div>
 
 <%= link_to 'Book Now', new_record_booking_path(@record), class: 'btn btn-primary' %>

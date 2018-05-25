@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :records do
     resources :bookings, only: [:new, :create, :edit, :update, :destroy]
+    resources :reviews, only: :create
 
   end
 
