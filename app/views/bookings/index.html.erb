@@ -1,45 +1,56 @@
 <div class="container">
   <h2>Dashboard</h2>
-<div class="tabs">
-  <a class="tab active" href="#">
-    <h3>Bookings</h3>
-  </a>
-  <a class="tab" href="#your-records">
-    <h3>Your records for rent</h3>
-  </a>
-</div>
+  <div class="tabs">
+    <a class="tab active" href="#">
+      <h3>Bookings</h3>
+    </a>
+    <a class="tab" href="#your-records">
+      <h3>Your records for rent</h3>
+    </a>
+  </div>
 
-<div class="active-bookings">
-  <% @bookings.each do |booking| %>
+  <div class="active-bookings">
+    <% @bookings.each do |booking| %>
     <div class="message">
-      <img class="avatar-large" src="app/assets/images/dsotm.jpg">
-        <div class="message-body">
-          <% vinyl = Record.find(booking.record_id) %>
-          <p><strong><%= vinyl.title %></strong></p>
-          <p>
-              Booker: <%= User.find(booking.user_id).email %><br>
-              Start: <%= booking.start_date %> <br>
-              End: <%= booking.end_date %> <br>
-          </p>
-        </div>
-        <div class="message-status">
-          <p>Booking status:<%= booking.status %></p>
-        </div>
-        <div class="message-status">
-          <p class="price">Rate per day: <%= booking.record.price %>€</p>
-        </div>
-        <div class="message-buttons">
-          <%= link_to 'Edit', edit_record_booking_path(booking.record,booking),
-          data: { confirm: "Edit booking?" },
-          class: 'btn btn-primary' %>
-          <%= link_to 'Cancel', record_booking_path(booking.record,booking),
-           method: :delete,
-          data: { confirm: "Cancel booking?" },
-          class: 'btn btn-primary' %>
-        </div>
+      <!--   <img class="avatar-large" src="app/assets/images/dsotm.jpg"> -->
+
+      <% if booking.record.photo.present?  %>
+      <div> <%= cl_image_path booking.record.photo, class:"avatar-large" %> </div>
+      <% else  %>
+
+      <div> <%= image_tag "dsotm.jpg", class:"avatar-large" %> </div>
+      <% end  %>
+
+
+
+
+      <div class="message-body">
+        <% vinyl = Record.find(booking.record_id) %>
+        <p><strong><%= vinyl.title %></strong></p>
+        <p>
+          Booker: <%= User.find(booking.user_id).email %><br>
+          Start: <%= booking.start_date %> <br>
+          End: <%= booking.end_date %> <br>
+        </p>
+      </div>
+      <div class="message-status">
+        <p>Booking status:<%= booking.status %></p>
+      </div>
+      <div class="message-status">
+        <p class="price">Rate per day: <%= booking.record.price %>€</p>
+      </div>
+      <div class="message-buttons">
+        <%= link_to 'Edit', edit_record_booking_path(booking.record,booking),
+        data: { confirm: "Edit booking?" },
+        class: 'btn btn-primary' %>
+        <%= link_to 'Cancel', record_booking_path(booking.record,booking),
+        method: :delete,
+        data: { confirm: "Cancel booking?" },
+        class: 'btn btn-primary' %>
+      </div>
     </div>
-<% end  %>
-</div>
+    <% end  %>
+  </div>
 </div>
 
 
