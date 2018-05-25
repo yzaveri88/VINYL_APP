@@ -18,11 +18,10 @@ class Record < ApplicationRecord
   after_validation :geocode
 
 
+  private
 
-  # private
-
-  # def city_name
-  #   self.city.name
-  # end
+  def city_name
+     self.city.name
+   end
 
 end
